@@ -1,9 +1,15 @@
 # Gobbler
-kjhlkuhlkjh
+Make gobbles
 
 
 ## Hello World
 
-### oh boy 
-## Hello World
+
+## Tech used
+* twit
+* Twitter API
+* Node.js
+* Mongoose
+* MongoDB
+* Express
 
