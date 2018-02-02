@@ -6,6 +6,7 @@ var userSchema = new Schema({
         type: String,
         required: true
     },
+    googleId: String,
     gobbles: [{type: Schema.Types.ObjectId, ref: 'Gobble'}]
 }, {
     timestamps: true
