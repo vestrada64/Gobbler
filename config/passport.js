@@ -1,7 +1,6 @@
 var passport = require('passport');
-
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
-var Student = require('../models/user');
+var User = require('../models/User');
 
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -38,3 +37,5 @@ passport.deserializeUser(function(id, done) {
         done(err, user);
     });
 });
+
+

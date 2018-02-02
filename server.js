@@ -7,12 +7,15 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var methodOverride = require('method-override');
 var twit = require('twit');
+var passport = require('passport');
 
+require('dotenv').config();
 require('./config/database');
+require('./config/passport')
 
 var index = require('./routes/index');
 var api = require('./routes/api');
-require('./config/database');
+
 
 var app = express();
 
@@ -22,11 +25,20 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'GobblerRocks!',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 app.use('/api', api);
