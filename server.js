@@ -12,6 +12,7 @@ require('./config/database');
 
 var index = require('./routes/index');
 var api = require('./routes/api');
+require('./config/database');
 
 var app = express();
 
