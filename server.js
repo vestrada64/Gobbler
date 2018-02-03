@@ -4,7 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+<<<<<<< HEAD
+require('./config/database');
+=======
 var session = require('express-session');
+>>>>>>> master
 var methodOverride = require('method-override');
 var twit = require('twit');
 var passport = require('passport');
@@ -13,8 +17,14 @@ require('dotenv').config();
 require('./config/database');
 require('./config/passport')
 
+<<<<<<< HEAD
+var index = require('./routes/landing');
+var users = require('./routes/users');
+=======
 var index = require('./routes/index');
 var api = require('./routes/api');
+
+>>>>>>> master
 
 
 var app = express();
