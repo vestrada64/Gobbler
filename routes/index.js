@@ -7,6 +7,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/landing', function(req, res, next) {
+  res.render('landing', { title: 'Express' });
+});
+
 
 router.get('/auth/google', passport.authenticate(
   'google',
