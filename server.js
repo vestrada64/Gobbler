@@ -5,12 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+
 var methodOverride = require('method-override');
 var twit = require('twit');
 require('dotenv').config();
 
+
 require('./config/database');
 require('./config/passport');
+
 
 var index = require('./routes/index');
 var api = require('./routes/api');
