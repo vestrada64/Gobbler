@@ -3,12 +3,12 @@ var router = express.Router();
 var passport = require('passport');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function(req, res) {
+  res.render('login', { user: req.user });
 });
 
-router.get('/landing', function(req, res, next) {
-  res.render('landing', { title: 'Express' });
+router.get('/index', function(req, res) {
+  res.render('index', { user: req.user});
 });
 
 
@@ -21,7 +21,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/',
+    successRedirect: '/index',
     failureRedirect: '/'  
   }
 ));
@@ -34,7 +34,7 @@ router.get('/logout', function(req, res) {
 
 //Add Login/Logout UI
 router.get('/', function(req, res) {
-  res.render('index', { user: req.user });
+  res.render('login', { user: req.user });
 });
 
 module.exports = router;

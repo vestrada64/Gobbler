@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Gobbler</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <h1>Hello World</h1>
+    <h1>Gobbler Index</h1>
+    <ul class="right">
+      <% if (user) { %>
+      <li><a href="/logout">Logout</a></li>
+      <% } else { %>
+      <li><a href="/auth/google">Login with Google</a></li>
+      <% } %>
+    </ul>
   </body>
 </html>
