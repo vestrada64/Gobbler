@@ -57,11 +57,4 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 //delete here
 
-var T = new twit({
-  "consumer_key": "YMzZca6E397b2mQ49Sq8hmjaz",
-  "consumer_secret": "REmkmYBM7Dkw1okfwp8w2Z2vXEOozV7anASsS8do4QwukcE1ow",
-  "access_token": "4723156794-5yr6lB5uvihkGr1HaiQJDrv3WeBjUjoSc9oDWQF",
-  "access_token_secret": "iECd82h4Iwppma6Yi8tCiO51NNdbQVbEOrwANWRB5Fmqb"
-})
-
 
