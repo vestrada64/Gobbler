@@ -5,23 +5,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-require('./config/database');
-
 
 var methodOverride = require('method-override');
 var twit = require('twit');
-var passport = require('passport');
-
 require('dotenv').config();
+
+
 require('./config/database');
-require('./config/passport')
+require('./config/passport');
 
 
 var index = require('./routes/index');
 var api = require('./routes/api');
-
-
-
 
 var app = express();
 
@@ -31,20 +26,11 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-app.use(session({
-  secret: 'GobblerRocks!',
-  resave: false,
-  saveUninitialized: true
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/api', api);
@@ -69,3 +55,13 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+//delete here
+
+var T = new twit({
+  "consumer_key": "YMzZca6E397b2mQ49Sq8hmjaz",
+  "consumer_secret": "REmkmYBM7Dkw1okfwp8w2Z2vXEOozV7anASsS8do4QwukcE1ow",
+  "access_token": "4723156794-5yr6lB5uvihkGr1HaiQJDrv3WeBjUjoSc9oDWQF",
+  "access_token_secret": "iECd82h4Iwppma6Yi8tCiO51NNdbQVbEOrwANWRB5Fmqb"
+})
+
+
