@@ -19,7 +19,7 @@ router.get('/auth/twitter', passport.authenticate(
 router.get('/twitter/oauthcallback', passport.authenticate(
   'twitter',
   {
-    successRedirect : '/index',
+    successRedirect : '/',
     failureRedirect : '/'
   }
 ));
@@ -34,7 +34,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/index',
+    successRedirect: '/',
     failureRedirect: '/'  
   }
 ));
