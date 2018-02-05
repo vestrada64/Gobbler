@@ -34,21 +34,21 @@ passport.use(new TwitterStrategy({
     callbackURL: process.env.TWITTER_CALLBACK
   },
   function(token, tokenSecret, profile, cb) {
-    twitterUser = profile;
     User.findOne({ 'twitterId': profile.id }, function (err, user) {
         console.log(profile)
         if (err) return cb(err);
         if (profile) {
             return cb(null, user);
         } else {
-            var newUser = new User({
-                name: profile.name,
+            var user = new User({
+                avatar: profile.profile_image_url,
+                displayName: profile.screen_name,
+                userName: profile.name,
                 twitterId: profile.id,
-                userName: profile.username
             });
-            newUser.save(function(err) {
+            user.save(function(err) {
                 if (err) return cb(err);
-                return cb(null, newUser);
+                return cb(null, user);
             });
         }
     });
