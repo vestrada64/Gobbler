@@ -5,7 +5,7 @@ var gobbleSchema = new Schema({
     content: {
         type: String,
         required: true
-    }
+    },
     likes: Array
 }, {
     timestamps: true
