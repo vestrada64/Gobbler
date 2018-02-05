@@ -7,9 +7,10 @@ var userSchema = new Schema({
         required: true
     },
     googleId: String,
+    twitterId: String,
     gobbles: [{type: Schema.Types.ObjectId, ref: 'Gobble'}]
 }, {
     timestamps: true
 });
 
-mongoose.model('User', userSchema)
+module.exports = mongoose.model('User', userSchema)

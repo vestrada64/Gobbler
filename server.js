@@ -5,12 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var passport = require('passport');
 var methodOverride = require('method-override');
 var twit = require('twit');
 require('dotenv').config();
 
+
 require('./config/database');
 require('./config/passport');
+
 
 var index = require('./routes/index');
 var api = require('./routes/api');
@@ -28,6 +31,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'Gobbler Rocks!',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 app.use('/api', api);
@@ -51,14 +62,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.get('/auth/twitter',
+passport.authenticate('twitter'));
+
+app.get('/auth/twitter/callback', 
+passport.authenticate('twitter', { failureRedirect: '/login' }),
+function(req, res) {
+  // Successful authentication, redirect home.
+  res.redirect('/');
+});
+
 module.exports = app;
 //delete here
-
-var T = new twit({
-  "consumer_key": "YMzZca6E397b2mQ49Sq8hmjaz",
-  "consumer_secret": "REmkmYBM7Dkw1okfwp8w2Z2vXEOozV7anASsS8do4QwukcE1ow",
-  "access_token": "4723156794-5yr6lB5uvihkGr1HaiQJDrv3WeBjUjoSc9oDWQF",
-  "access_token_secret": "iECd82h4Iwppma6Yi8tCiO51NNdbQVbEOrwANWRB5Fmqb"
-})
 
 

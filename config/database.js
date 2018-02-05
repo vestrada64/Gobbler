@@ -9,3 +9,5 @@ db.once('open', () => console.log(`Connected to MongoDB on ${db.host}:${db.port}
 db.on('error', function(err){
     console.error(`Database error:\n${err}`);
 });
+
+module.exports = mongoose
