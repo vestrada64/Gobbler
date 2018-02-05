@@ -26,7 +26,7 @@ passport.use(new TwitterStrategy({
               }
         } else {
             var newUser = new User({
-                avatar: profile.profile_image_url,
+                avatar: profile.photos[0].value,
                 displayName: profile.username,
                 userName: profile.displayName,
                 twitterId: profile.id

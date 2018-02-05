@@ -33,7 +33,10 @@
       </nav>
     
         <% if (user){ %>
-            <div><%= user %></div>
+          <img src="<%= user.avatar %>" alt="">
+          <textarea name="gobble-input" id="Gobbler" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
+          <input type="submit" name="" id="submitButton">
+          <div><%= user %></div>
 
         <% }; %>
    
