@@ -1,16 +1,4 @@
-body {
-  background-color: #F9FBE7;
-}
 
-.topnav {
-  background-color: #C0392B;
-  text-align: center;
-  padding: 11px 15px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-a {
-  color: red;
-  text-decoration: none;
+.selector-for-some-widget {
+  box-sizing: content-box;
 }
