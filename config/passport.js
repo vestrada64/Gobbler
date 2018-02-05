@@ -36,7 +36,7 @@ passport.use(new TwitterStrategy({
   function(token, tokenSecret, profile, cb) {
     User.findOne({ twitterId: profile.id }, function (err, user) {
         if (err) return cb(err);
-        console.log(user);
+        console.log(profile);
         if (profile) {
             return cb(null, user);
         } else {
