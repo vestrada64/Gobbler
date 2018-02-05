@@ -27,14 +27,14 @@ function updateUser(req, res) {
     });
 }
 
-function deleteMovie(req, res) {
-    Movie.findByIdAndRemove(req.params.id, function(err, movie) {
-        res.status(200).json(movie);
+function deleteUser(req, res) {
+    Movie.findByIdAndRemove(req.params.id, function(err, user) {
+        res.status(200).json(user);
     });
 }
 
 module.exports = {
-    getallUsers,
+    getAllUsers,
     getOneUser,
     createUser,
     updateUser,
