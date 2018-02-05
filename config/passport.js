@@ -34,14 +34,15 @@ passport.use(new TwitterStrategy({
     callbackURL: process.env.TWITTER_CALLBACK
   },
   function(token, tokenSecret, profile, cb) {
-    User.findOne({ twitterId: profile.id }, function (err, user) {
+    twitterUser = profile;
+    User.findOne({ 'twitterId': profile.id }, function (err, user) {
+        console.log(profile)
         if (err) return cb(err);
-        console.log(profile);
         if (profile) {
             return cb(null, user);
         } else {
             var newUser = new User({
-                name: profile.displayName,
+                name: profile.name,
                 twitterId: profile.id,
                 userName: profile.username
             });
