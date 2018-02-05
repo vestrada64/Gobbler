@@ -19,7 +19,7 @@ router.get('/auth/twitter', passport.authenticate(
 router.get('/twitter/oauthcallback', passport.authenticate(
   'twitter',
   {
-    successRedirect : '/',
+    successRedirect : '/index',
     failureRedirect : '/'
   }
 ));

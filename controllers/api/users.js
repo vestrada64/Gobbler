@@ -8,8 +8,8 @@ function getAllUsers(req, res) {
 
 
 function getOneUser(req, res) {
-    User.findById(req.params.id, function(err, movie) {
-        res.status(200).json(movie);
+    User.findById(req.params.id, function(err, user) {
+        res.status(200).json(user);
     });
 }
 
