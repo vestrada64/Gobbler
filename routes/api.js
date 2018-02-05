@@ -14,3 +14,4 @@ router.delete('/users/:id', usersCtrl.deleteUser);
 router.put('/users/:id', usersCtrl.updateUser);
 
 module.exports = router;
+//api routes
