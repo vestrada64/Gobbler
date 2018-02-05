@@ -37,18 +37,29 @@ passport.use(new TwitterStrategy({
     User.findOne({ 'twitterId': profile.id }, function (err, user) {
         console.log(profile)
         if (err) return cb(err);
-        if (profile) {
-            return cb(null, user);
-        } else {
-            var user = new User({
-                avatar: profile.profile_image_url,
-                displayName: profile.screen_name,
-                userName: profile.name,
-                twitterId: profile.id,
-            });
-            user.save(function(err) {
-                if (err) return cb(err);
+        // user.avatar = profile.photos[0].value;
+        // user.displayName = profile.username;
+        // user.userName = profile.displayName;
+
+        if (user) {
+            if (!user.avatar || !user.displayName || !user.userName) {
+
+                user.save(function(err) {
+                  return cb(null, user);
+                });
+              } else {
                 return cb(null, user);
+              }
+        } else {
+            var newUser = new User({
+                avatar: profile.profile_image_url,
+                displayName: profile.username,
+                userName: profile.displayName,
+                twitterId: profile.id
+            });
+            newUser.save(function(err) {
+                if (err) return cb(err);
+                return cb(null, newUser);
             });
         }
     });
