@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+var router = require('express').Router();
 var passport = require('passport');
 
 /* GET home page. */
@@ -10,6 +10,19 @@ router.get('/', function(req, res) {
 router.get('/index', function(req, res) {
   res.render('index', { user: req.user});
 });
+
+router.get('/auth/twitter', passport.authenticate(
+  'twitter',
+  { scope: ['profile', 'email'] }
+));
+
+router.get('/twitter/oauthcallback', passport.authenticate(
+  'twitter',
+  {
+    successRedirect : '/',
+    failureRedirect : '/'
+  }
+));
 
 
 router.get('/auth/google', passport.authenticate(
