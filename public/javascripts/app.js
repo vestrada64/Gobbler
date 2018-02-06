@@ -1,6 +1,4 @@
 
-
-
 function gobble() {
     if( !$('#gobble').val() ) return;
     fetch('/api/gobbles', {
