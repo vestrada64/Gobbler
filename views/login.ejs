@@ -35,20 +35,6 @@
           </form>
         </div>
       </nav>
-<<<<<<< HEAD
-      </head>
-      <div class="panel panel-default">
-            <div class="panel-body">
-                    <% if (user){ %>
-                        <img src="<%= user.avatar %>" alt="">
-                        <textarea name="gobble-input" id="Gobbler" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
-                        <input type="submit" name="" id="submitButton path">
-                        <div><%= user %></div>
-              
-                      <% }; %>
-            </div>
-          </div>
-=======
     
         <% if (user){ %>
           <img src="<%= user.avatar %>" alt="">
@@ -57,7 +43,7 @@
           <%for(let i = 0; i <= user.gobbles.length; i++){ %>
             <div><%= user.gobbles[i] %></div>
           <% } %>
->>>>>>> master
+        <% }; %>
 
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
