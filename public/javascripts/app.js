@@ -1,5 +1,4 @@
-var allUsers;
-var template
+
 
 
 function gobble() {
@@ -13,8 +12,5 @@ function gobble() {
     .then(res => res.json())
     .then(data => {
         $('#gobble').val('');
-        var idx = allUsers.findIndex(u => u._id === data._id);
-        allUsers[idx] = data;
-        render();   
     });
 }
