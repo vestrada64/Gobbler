@@ -14,7 +14,16 @@ router.delete('/users/:id', usersCtrl.deleteUser);
 
 router.put('/users/:id', usersCtrl.updateUser);
 
+
+router.get('/gobbles', gobblesCtrl.getAllGobbles);
+
+// router.get('/users/:id/gobbles/:id', gobblesCtrl.getOneGobble);
+
 router.post('/gobbles', gobblesCtrl.createGobble);
+
+router.delete('/users/:id/gobbles/:id', gobblesCtrl.deleteGobble);
+
+// router.put('/users/:id/gobbles/:id', gobblesCtrl.updateGobble);
 
 module.exports = router;
 //api routes
