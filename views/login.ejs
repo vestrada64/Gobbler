@@ -31,16 +31,10 @@
           </form>
         </div>
       </nav>
-      <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button">Button</button>
-            </div>
-          </div>
         <% if (user){ %>
           <img src="<%= user.avatar %>" alt="">
           <textarea name="gobble-input" id="Gobbler" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
-          <input type="submit" name="" id="submitButton">
+          <input type="submit" name="" id="submitButton path">
           <div><%= user %></div>
 
         <% }; %>
