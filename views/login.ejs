@@ -34,8 +34,8 @@
     
         <% if (user){ %>
           <img src="<%= user.avatar %>" alt="">
-          <textarea name="gobble-input" id="Gobbler" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
-          <input type="submit" name="" id="submitButton">
+          <textarea name="gobble-input" id="gobble" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
+          <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
           <div><%= user %></div>
 
         <% }; %>
@@ -45,6 +45,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
+  <script src="javascripts/app.js"></script>
+      
 </body>
 </html>

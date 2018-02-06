@@ -9,11 +9,8 @@ passport.use(new TwitterStrategy({
   },
   function(token, tokenSecret, profile, cb) {
     User.findOne({ 'twitterId': profile.id }, function (err, user) {
-        console.log(profile)
         if (err) return cb(err);
-        // user.avatar = profile.photos[0].value;
-        // user.displayName = profile.username;
-        // user.userName = profile.displayName;
+   
 
         if (user) {
             if (!user.avatar || !user.displayName || !user.userName) {

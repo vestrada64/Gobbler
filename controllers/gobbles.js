@@ -1,4 +1,5 @@
 var User = require('../models/User');
+var Gobble = require('../models/Gobble');
 
 function index(req, res) {
     User.find({}, function(err, users) {
@@ -7,6 +8,16 @@ function index(req, res) {
     });
 }
 
+function create(req, res) {
+    req.user.gobbles.push({text: req.body.gobble});
+    req.user.save(function(err) {
+        res.json(req.user);
+    
+    });
+}
+
+
 module.exports = {
-    index: index
+    index: index,
+    create: create
 };
