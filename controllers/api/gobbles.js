@@ -18,7 +18,21 @@ function createGobble(req, res) {
 
 }
 
+function deleteGobble(req, res) {
+    Gobble.findByIdAndRemove(req.params.id, function(err, gobble) {
+        res.status(200).json(gobble);
+    })
+}
+
+function getAllGobbles(req, res) {
+    Gobble.find({}, function(err, gobble) {
+        res.status(200).json(gobble);
+    });
+}
+
 module.exports = {
-    createGobble
+    createGobble,
+    deleteGobble,
+    getAllGobbles
 }
 
