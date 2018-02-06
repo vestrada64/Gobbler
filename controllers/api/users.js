@@ -33,6 +33,8 @@ function deleteUser(req, res) {
     });
 }
 
+
+
 module.exports = {
     getAllUsers,
     getOneUser,
