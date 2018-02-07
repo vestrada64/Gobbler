@@ -15,14 +15,16 @@ var tweet = new Twit({
 /* GET home page. */
 router.get('/gobbles', gobbleCtrl.index );
 
+// router.put('/gobbles/:id', gobblesCtrl.update);
+
 router.get('/', function(req, res) {
-  res.render('login', { user: req.user });
-});
+  res.render('login', {user: req.user});
+})
 
 router.get('/auth/twitter', passport.authenticate(
   'twitter',
   { scope: ['profile', 'email'] }
-));
+))
 
 router.get('/twitter/oauthcallback', passport.authenticate(
   'twitter',

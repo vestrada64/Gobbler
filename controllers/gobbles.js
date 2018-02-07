@@ -6,10 +6,10 @@ function index(req, res) {
     
     if (req.user) { 
         req.user.populate('gobbles', function(err) { 
-          res.render('login', {user: req.user })
+          res.render('index', {user: req.user })
         });
     } else {
-        res.render('login', {user: null })
+        res.render('index', {user: null })
     }
 }
 
@@ -22,14 +22,18 @@ function create(req, res) {
 }
 
 function deleteGobble(req, res) {
-    console.log('hello');
     Gobble.findByIdAndRemove(req.params.id, function(err, user){
-        res.redirect
+        // res.redirect
     })
+}
+
+function update(req, res) {
+
 }
 
 module.exports = {
     index: index,
     create: create,
-    delete: deleteGobble
+    delete: deleteGobble,
+    update: update
 };

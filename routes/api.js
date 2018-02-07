@@ -13,6 +13,7 @@ router.delete('/users/:id', usersCtrl.deleteUser);
 router.get('/gobbles', gobblesCtrl.getAllGobbles);
 router.post('/gobbles', gobblesCtrl.createGobble);
 router.delete('/gobbles/:id', gobblesCtrl.deleteGobble);
+router.put('/gobbles/:id', gobblesCtrl.updateGobble);
 
 // router.delete('/users/:id/gobbles/:id', gobblesCtrl.deleteGobble);
 
