@@ -10,7 +10,9 @@ function createGobble(req, res) {
         if (err) console.log(err);
         req.user.gobbles.push(gobble._id);
         req.user.save(function(err) {
-            res.status(201).json(req.user);
+            req.user.populate('gobbles', function(err){
+                res.status(201).json(req.user);
+            });
         })
     })
 }
