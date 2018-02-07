@@ -42,6 +42,7 @@
           <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
           <% for(let i = 0; i <= user.gobbles.length; i++){ %>
             <div><%= user.gobbles[i] %></div>
+            <button id="deleteBtn">DELETE</button>
           <% } %>
 
         <% }; %>
