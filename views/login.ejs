@@ -13,9 +13,9 @@
 </head>
 <body>
     <!-- <h1>Welcome to Gobbler</h1> -->
-    
+    <head>
     <nav class="navbar navbar-light" style="background-color: #9c1515;">
-        <a class="navbar-brand" href="/index" style="color: white;" >Gobbler</a>
+        <a class="navbar-brand" href="/login" style="color: white;" >Gobbler</a>
         <button style="background-color: white;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,19 +35,25 @@
           </form>
         </div>
       </nav>
-    
+        <div class="wrapper" >
         <% if (user){ %>
           <img src="<%= user.avatar %>" alt="">
           <textarea name="gobble-input" id="gobble" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
           <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
-          <% for(let i = 0; i <= user.gobbles.length; i++){ %>
-            <div><%= user.gobbles[i] %></div>
-            <button id="deleteBtn">DELETE</button>
-          <% } %>
+
+
+          <div class="userGobbles">
+            <% for(let i = 0; i <= user.gobbles.length; i++){ %>
+            <div id=<% user.gobbles[i] %> >
+                <%= user.gobbles[i] %>
+                <input type="button" value="update" id="updatebtn">
+                <input type="button" value="delete" id="deletebtn" data-gobbleid="<%= user.gobbles[i] %>">
+              </div>
+            <% } %>
+          </div>
 
         <% }; %>
-   
-      
+        </div>        
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

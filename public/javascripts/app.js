@@ -1,10 +1,6 @@
-
-var delBtn = document.getElementById('deleteBtn');
-
 function gobble() {
-    console.log(user.populate('gobbles', function(err) {console.log(JSON.stringify(user, null, 2))}));
     if( !$('#gobble').val() ) return;
-    fetch('/api/gobbles', {
+    fetch(`/api/gobbles`, {
         method: 'POST',
         headers: {'Content-Type' : 'application/json' },
         body: JSON.stringify({ content: $('#gobble').val()}),
@@ -16,8 +12,12 @@ function gobble() {
     });
 }
 
-delBtn.addEventListener('click', function(evt) {
-    fetch(`/api/gobbles/${evt.target.dataset.id}`, {
-        method: 'DELETE'
-    })
-});
+
+document.querySelector('.userGobbles').addEventListener('click', function(event){
+    console.dir(event.target);
+    fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
+        method: 'DELETE',
+        credentials: 'include'
+    });
+
+})
