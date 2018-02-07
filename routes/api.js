@@ -3,7 +3,6 @@ var router = express.Router();
 var usersCtrl = require('../controllers/api/users');
 var gobblesCtrl = require('../controllers/api/gobbles');
 
-/* GET users listing. */
 router.get('/users', usersCtrl.getAllUsers);
 router.get('/users/:id', usersCtrl.getOneUser);
 router.post('/users', usersCtrl.createUser);
@@ -12,7 +11,6 @@ router.delete('/users/:id', usersCtrl.deleteUser);
 // router.get('/users/:id/gobbles/', usersCtrl.getUserGobbles);
 
 router.get('/gobbles', gobblesCtrl.getAllGobbles);
-
 router.post('/gobbles', gobblesCtrl.createGobble);
 router.delete('/gobbles/:id', gobblesCtrl.deleteGobble);
 
