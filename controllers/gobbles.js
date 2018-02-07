@@ -1,5 +1,6 @@
 var User = require('../models/User');
 var Gobble = require('../models/Gobble');
+var Twit = require('twit');
 
 function index(req, res) {
     
@@ -17,7 +18,6 @@ function create(req, res) {
     req.user.gobbles.push({text: req.body.gobble});
     req.user.save(function(err) {
         res.json(req.user);
-    
     });
 }
 

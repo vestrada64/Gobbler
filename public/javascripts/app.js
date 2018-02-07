@@ -1,9 +1,10 @@
 function gobble() {
-    if( !$('#gobble').val() ) return;
+    var gobbleContent = $('#gobble').val();
+    if( !gobbleContent ) return;
     fetch(`/api/gobbles`, {
         method: 'POST',
         headers: {'Content-Type' : 'application/json' },
-        body: JSON.stringify({ content: $('#gobble').val()}),
+        body: JSON.stringify({ content: gobbleContent}),
         credentials: 'include'
     })
     .then(res => res.json())

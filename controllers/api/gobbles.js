@@ -1,7 +1,13 @@
 var User = require('../../models/User');
 var Gobble = require('../../models/Gobble');
+var Twit = require('twit');
 
-
+var tweet = new Twit({
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token: process.env.TWITTER_ACCESS_TOKEN,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+})
 
 function createGobble(req, res) {
     console.log(req.body);
@@ -14,6 +20,9 @@ function createGobble(req, res) {
                 res.status(201).json(req.user);
             });
         })
+
+    })
+    tweet.post('statuses/update', { status: req.body.content + "\nThis Tweet was tweeted through Gobbler! Its like Twitter, but with an edit button!" }, function(err, data, response){
     })
 }
 
