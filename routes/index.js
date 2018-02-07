@@ -1,14 +1,13 @@
 var express = require('express');
 var router = require('express').Router();
 var passport = require('passport');
+var gobbleCtrl = require('../controllers/gobbles')
 
 /* GET home page. */
+router.get('/gobbles', gobbleCtrl.index );
+
 router.get('/', function(req, res) {
   res.render('login', { user: req.user });
-});
-
-router.get('/index', function(req, res) {
-  res.render('index', { user: req.user});
 });
 
 router.get('/auth/twitter', passport.authenticate(
@@ -19,23 +18,8 @@ router.get('/auth/twitter', passport.authenticate(
 router.get('/twitter/oauthcallback', passport.authenticate(
   'twitter',
   {
-    successRedirect : '/',
+    successRedirect : '/gobbles',
     failureRedirect : '/'
-  }
-));
-
-
-router.get('/auth/google', passport.authenticate(
-  'google',
-  { scope: ['profile', 'email'] }
-));
-
-//Google Callback Route
-router.get('/oauth2callback', passport.authenticate(
-  'google',
-  {
-    successRedirect: '/',
-    failureRedirect: '/'  
   }
 ));
 
@@ -45,9 +29,5 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
-//Add Login/Logout UI
-router.get('/', function(req, res) {
-  res.render('login', { user: req.user });
-});
 
 module.exports = router;

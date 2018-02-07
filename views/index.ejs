@@ -1,36 +1,61 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="https://images.vexels.com/media/users/3/134290/isolated/preview/c9b607f14fcaa9e959342f295d730d8a-turkey-dinner-flat-icon-64-by-vexels.png">   
+
+    <link rel="icon" href="https://i.imgur.com/b68AN02.png">   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/style.css">    
+
     <title>Gobbler</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-
-  </head>
-  <body>
-      
-    <div class="land">
-      <aside class="aside aside-1">
-        <div class="filt" ></div>
-        <ul class="facts">
-          <li>Edit your Gobbles</li>
-          <li>Update your Gobbles</li>
-          <li>Full CRUD</li>
-        </ul>
-      </aside>
-      <aside class="aside aside-2">
-        <a href="/auth/twitter" class="btn btn-danger" role="button" aria-pressed="true">Log in via Twitter</a>
-      </aside>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="javascripts/app.js"></script>
-
-  </body>
+</head>
+<body>
+    <!-- <h1>Welcome to Gobbler</h1> -->
+    <head>
+    <nav class="navbar navbar-light" style="background-color: #9c1515;">
+        <a class="navbar-brand" href="/login" style="color: white;" >Gobbler</a>
+        <button style="background-color: white;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <% if (user) { %>
+                <a style="color: white;" class="nav-link" href="/logout">Logout</a>
+              <% } else { %>
+                <a style="color: white;" class="nav-link" href="/auth/twitter">Login with twitter</a>
+              <% } %>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button style="color: white;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+        <div class="wrapper" >
+        <% if (user){ %>
+          <img src="<%= user.avatar %>" alt="">
+          <textarea name="gobble-input" id="gobble" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
+          <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
+          <div class="userGobbles">
+            <% for(let i = 0; i < user.gobbles.length; i++){ %>
+            <div id=<% user.gobbles[i] %> >
+                <%= user.gobbles[i].content %>
+                <%=  %>
+                <input type="button" value="update" id="updatebtn">
+                <input type="button" value="delete" id="deletebtn" data-gobbleid="<%= user.gobbles[i] %>">
+              </div>
+            <% } %>
+          </div>
+        <% }; %>
+        </div>        
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="javascripts/app.js"></script>
+</body>
 </html>
+
