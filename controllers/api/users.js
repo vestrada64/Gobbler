@@ -1,5 +1,4 @@
 var User = require('../../models/User');
-var Gobbles = require('../../models/Gobble');
 
 function getAllUsers(req, res) {
     User.find({}, function(err, user) {
@@ -34,22 +33,12 @@ function deleteUser(req, res) {
     });
 }
 
-function createGobble(req, res) {
-    User.findById({}).populate('_Gobbles').exec(function (err, gobble) {
-        if (err) return handleError(err);
-        res.status(200).json(gobble);
-
-    });
-}
-
-
-
-
 
 module.exports = {
     getAllUsers,
     getOneUser,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    createGobble
 }
