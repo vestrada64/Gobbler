@@ -1,6 +1,4 @@
 var User = require('../../models/User');
-var Gobble = require('../../models/Gobble');
-
 
 function getAllUsers(req, res) {
     User.find({}, function(err, user) {
@@ -34,28 +32,6 @@ function deleteUser(req, res) {
         res.status(200).json(user);
     });
 }
-
-function createGobble(req, res) {
-    var gobble = new Gobble(req.body);
-    gobble.save(function(err) {
-        if (err) console.log(err);
-        req.user.save(function(err) {
-            res.json(req.user).status(200);
-        });
-        
-    });
-    User.findById(req.params.id).populate('gobbles').exec(function(err, gobble){
-        console.log(req.params._id)
-        console.log(gobble)
-        });
-    };
-
-
-
-    // console.log(req.body);
-    // let thisUser = User.findById(req.params.id, function(err, user){
-       
-    // });
 
 
 module.exports = {

@@ -17,9 +17,9 @@ router.put('/users/:id', usersCtrl.updateUser);
 
 router.get('/gobbles', gobblesCtrl.getAllGobbles);
 
-// router.get('/users/:id/gobbles/', gobblesCtrl.getUserGobble);
+// router.get('/users/:id/gobbles/', usersCtrl.getUserGobbles);
 
-router.post('/gobbles', gobblesCtrl.createGobble);
+router.post('/users/:id/gobbles', gobblesCtrl.createGobble);
 
 // router.delete('/users/:id/gobbles/:id', gobblesCtrl.deleteGobble);
 
