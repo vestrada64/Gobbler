@@ -1,4 +1,3 @@
-
 function gobble() {
     if( !$('#gobble').val() ) return;
     fetch(`/api/gobbles`, {
@@ -12,6 +11,7 @@ function gobble() {
         $('#gobble').val(JSON.stringify(data, null, 2));
     });
 }
+
 
 document.querySelector('.userGobbles').addEventListener('click', function(event){
     console.dir(event.target);

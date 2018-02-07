@@ -41,6 +41,7 @@
           <textarea name="gobble-input" id="gobble" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
           <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
 
+
           <div class="userGobbles">
             <% for(let i = 0; i <= user.gobbles.length; i++){ %>
             <div id=<% user.gobbles[i] %> >
@@ -50,7 +51,6 @@
               </div>
             <% } %>
           </div>
-
 
         <% }; %>
         </div>        
