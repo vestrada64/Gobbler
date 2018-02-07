@@ -8,7 +8,8 @@ function gobble() {
     })
     .then(res => res.json())
     .then(data => {
-        $('#gobble').val(JSON.stringify(data, null, 2));
+      //  $('#gobble').val(JSON.stringify(data, null, 2));
+      window.location.reload();
     });
 }
 

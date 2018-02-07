@@ -2,9 +2,14 @@ var User = require('../models/User');
 var Gobble = require('../models/Gobble');
 
 function index(req, res) {
-    User.find({}).populate('gobbles').exec(function(err, user) { 
-        res.render('/login', {gobbles: user.gobbles })
-    })
+    
+    if (req.user) { 
+        req.user.populate('gobbles', function(err) { 
+          res.render('login', {user: req.user })
+        });
+    } else {
+        res.render('login', {user: null })
+    }
 }
 
 function create(req, res) {
@@ -16,7 +21,7 @@ function create(req, res) {
     });
 }
 
-function delete(req, res) {
+function deleteGobble(req, res) {
     console.log('hello');
     Gobble.findByIdAndRemove(req.params.id, function(err, user){
         res.redirect
@@ -26,5 +31,5 @@ function delete(req, res) {
 module.exports = {
     index: index,
     create: create,
-    delete: delete
+    delete: deleteGobble
 };
