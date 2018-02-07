@@ -16,8 +16,17 @@ function createGobble(req, res) {
 }
 
 function deleteGobble(req, res) {
-    Gobble.findByIdAndRemove(req.params.id, function(err, gobble) {
-        res.status(200).json(gobble);
+    
+    User.findOne(req.user._id)
+    .then(function(user){
+        console.log(user.gobbles.remove(req.params.id));
+        user.save(function(err){
+            res.status(201).json(user.gobbles)
+        })
+    })
+    Gobble.findByIdAndRemove(req.params.id)
+    .then(function(gobble){
+        console.log('Gobble delete')
     })
 }
 

@@ -40,9 +40,18 @@
           <img src="<%= user.avatar %>" alt="">
           <textarea name="gobble-input" id="gobble" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
           <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
-          <% for(let i = 0; i <= user.gobbles.length; i++){ %>
-            <div><%= user.gobbles[i] %></div>
-          <% } %>
+
+          <div class="userGobbles">
+            <% for(let i = 0; i <= user.gobbles.length; i++){ %>
+            <div id=<% user.gobbles[i] %> >
+                <%= user.gobbles[i] %>
+                <input type="button" value="update" id="updatebtn">
+                <input type="button" value="delete" id="deletebtn" data-gobbleid="<%= user.gobbles[i] %>">
+              </div>
+            <% } %>
+          </div>
+
+
         <% }; %>
 
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

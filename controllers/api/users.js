@@ -39,6 +39,5 @@ module.exports = {
     getOneUser,
     createUser,
     updateUser,
-    deleteUser,
-    createGobble
+    deleteUser
 }
