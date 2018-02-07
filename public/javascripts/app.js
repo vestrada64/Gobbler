@@ -14,10 +14,8 @@ function gobble() {
 }
 
 document.querySelector('.userGobbles').addEventListener('click', function(event){
-    console.dir(event.target);
     fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
         method: 'DELETE',
         credentials: 'include'
     });
-
 })

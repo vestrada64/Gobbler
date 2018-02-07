@@ -24,21 +24,6 @@ router.get('/twitter/oauthcallback', passport.authenticate(
   }
 ));
 
-
-router.get('/auth/google', passport.authenticate(
-  'google',
-  { scope: ['profile', 'email'] }
-));
-
-//Google Callback Route
-router.get('/oauth2callback', passport.authenticate(
-  'google',
-  {
-    successRedirect: '/',
-    failureRedirect: '/'  
-  }
-));
-
 //Logout Route
 router.get('/logout', function(req, res) {
   req.logout();
