@@ -40,7 +40,7 @@
           <img src="<%= user.avatar %>" alt="">
           <textarea name="gobble-input" id="gobble" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
           <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
-          <%for(let i = 0; i <= user.gobbles.length; i++){ %>
+          <% for(let i = 0; i <= user.gobbles.length; i++){ %>
             <div><%= user.gobbles[i] %></div>
           <% } %>
 
