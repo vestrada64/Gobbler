@@ -1,7 +1,10 @@
 # Gobbler
-![](https://i.imgur.com/J1v3bnE.png)
+
+![](https://imgur.com/J1v3bnE)
+
 * Hear what people are **talking** about, Gobble it up, and best but not least **EDIT your Gobbles!**
 * I know what you're thinking what makes our app special? We give you a feature that twitter can't give you, which includes being able to edit your own Gobbles you put out on your feed.
+
 
 ## Technologies used:
 * HTML, CSS, and Javascript
