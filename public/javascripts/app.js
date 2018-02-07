@@ -1,4 +1,3 @@
-
 function gobble() {
     if( !$('#gobble').val() ) return;
     fetch(`/api/gobbles`, {
@@ -13,9 +12,11 @@ function gobble() {
     });
 }
 
+
 document.querySelector('.userGobbles').addEventListener('click', function(event){
     fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
         method: 'DELETE',
         credentials: 'include'
     });
 })
+
