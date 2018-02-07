@@ -5,22 +5,28 @@ var Gobble = require('../../models/Gobble');
 
 function createGobble(req, res) {
     console.log(req.body);
-
     var gobble = new Gobble(req.body);
     gobble.save(function(err) {
         if (err) console.log(err);
-        req.user.gobbles.push(gobble);
+        req.user.gobbles.push(gobble._id);
         req.user.save(function(err) {
-            res.json(req.user).status(200);
+            res.status(201).json(req.user);
         })
-
     })
-
 }
 
 function deleteGobble(req, res) {
-    Gobble.findByIdAndRemove(req.params.id, function(err, gobble) {
-        res.status(200).json(gobble);
+    
+    User.findOne(req.user._id)
+    .then(function(user){
+        console.log(user.gobbles.remove(req.params.id));
+        user.save(function(err){
+            res.status(201).json(user.gobbles)
+        })
+    })
+    Gobble.findByIdAndRemove(req.params.id)
+    .then(function(gobble){
+        console.log('Gobble delete')
     })
 }
 
