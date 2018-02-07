@@ -4,7 +4,9 @@ var User = require('../models/User');
 
 passport.use(new TwitterStrategy({
     consumerKey: process.env.TWITTER_CONSUMER_KEY,
-    consumerSecret: process.env.TWITTER_SECRET,
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token: process.env.TWITTER_ACCESS_TOKEN,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
     callbackURL: process.env.TWITTER_CALLBACK
   },
   function(token, tokenSecret, profile, cb) {
@@ -12,7 +14,6 @@ passport.use(new TwitterStrategy({
         if (err) return cb(err);
         if (user) {
             if (!user.avatar || !user.displayName || !user.userName) {
-
                 user.save(function(err) {
                   return cb(null, user);
                 });
