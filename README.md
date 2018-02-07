@@ -18,8 +18,10 @@
 * [PitchDeck](https://docs.google.com/presentation/d/1QLT0XjC2glTM7SR3hSHRJo-ku6IO8q_o8ifskjvxZc8/edit#slide=id.p)
 * [Trello Board](https://trello.com/b/qEYRYeiv/wdi-gobbler)
 
-## Restful API endpoints
-
+## RESTful API Endpoints
+| Endpoint      | Purpose             |
+| ------------- |:-------------:      |
+| /api/gobbles  | returns all gobbles |
 
 ## Unsolved Problems 
 * Using web sockets for real time communication b/w clients and servers.
