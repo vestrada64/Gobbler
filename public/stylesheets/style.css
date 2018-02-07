@@ -3,16 +3,39 @@
   box-sizing: content-box;
 }
 
+
+  
+
+.land {
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-flow: row wrap;
+  font-weight: bold;
+}
+
 .wrapper {
   display: flex;  
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   flex-flow: row wrap;
   font-weight: bold;
   text-align: center;
+  flex-direction: column;
+  width: 100%;
 }
 
-.wrapper > * {
-  padding: 0;
-  flex: 1 100%;
+.input {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+} 
+
+.edit {
+  display: flex;
+  justify-content: space-around;
 }
 
 .facts {
