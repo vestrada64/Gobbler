@@ -11,7 +11,7 @@
 }
 
 .wrapper > * {
-  padding: 10px;
+  padding: 0;
   flex: 1 100%;
 }
 
@@ -19,13 +19,16 @@
   text-decoration: none;
   list-style-type: none;
   color: white;
-  font-size: 25px;
+  font-size: 50px;
 }
 
 .nav-link {
   text-decoration: none;
   font-size: 35px;
-  color: darkred;
+  color: rgb(255, 255, 255);
+  background-color: rgba(139, 0, 0, 0.589);
+  width: 100%;
+  padding: 15px 15px;
 }
 .nav-link:hover {
   text-decoration: underline;
@@ -35,7 +38,6 @@
   font-size: 25px;
 }
 
-
 .aside-1 {
   background: darkred;
   width:25%;
@@ -44,9 +46,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(https://images.vexels.com/media/users/3/137028/isolated/preview/52f6a83cbfc0e6a006a7222efdeb9752-turkey-standing-silhouette-by-vexels.png);
 }
 
 .aside-2 {
+  margin: 0;
   background: white;
   width: 25%;
   height: 1200px;
@@ -54,6 +58,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(https://johnzeus.files.wordpress.com/2012/01/heritage_turkeys1.jpg)
 }
 
 @media all and (min-width: 600px) {
@@ -74,3 +79,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+div.gob {
+  display: flex;
+  display: inline-block;
+  justify-content: center;
+  align-content: center;
+}
