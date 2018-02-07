@@ -18,17 +18,23 @@ function createGobble(req, res) {
 }
 
 function deleteGobble(req, res) {
-    
     User.findOne(req.user._id)
     .then(function(user){
         console.log(user.gobbles.remove(req.params.id));
         user.save(function(err){
-            res.status(201).json(user.gobbles)
+            res.status(200).json(user.gobbles)
         })
-    })
+    });
     Gobble.findByIdAndRemove(req.params.id)
     .then(function(gobble){
         console.log('Gobble delete')
+    });
+}
+
+function updateGobble(req, res) {
+    Gobble.findByIdAndUpdate(req.params.id, req.body, {new: true},
+    function(err, gobble) {
+        res.status(200).json(gobble);
     })
 }
 
@@ -44,6 +50,7 @@ function getAllGobbles(req, res) {
 module.exports = {
     createGobble,
     deleteGobble,
-    getAllGobbles
+    getAllGobbles,
+    updateGobble
 }
 
