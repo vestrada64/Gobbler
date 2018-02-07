@@ -15,9 +15,22 @@ function gobble() {
 
 
 document.querySelector('.userGobbles').addEventListener('click', function(event){
-    fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
-        method: 'DELETE',
-        credentials: 'include'
-    });
-})
+    if (event.target.value === 'delete') {
+        fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
+            method: 'DELETE',
+            credentials: 'include'
+        }).then(res => res.json())
+        .then(data => {
+            window.location.reload();
+        });
+    } else if (event.target.value === 'update') {
+        fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
+            method: 'PUT',
+            credentials: 'include'
+        }).then(res => res.json())
+        .then(data => {
+            res.render('/gobbles/:id')
+        });
+    }
+});
 
