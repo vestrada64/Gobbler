@@ -30,9 +30,5 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
-//Add Login/Logout UI
-router.get('/', function(req, res) {
-  res.render('login', { user: req.user });
-});
 
 module.exports = router;
