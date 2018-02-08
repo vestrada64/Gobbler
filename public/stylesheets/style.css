@@ -133,22 +133,27 @@ div.gob {
           border-radius: 8px;
   }
 
-  #gravy:hover {
+  .gravyoff:hover {
     transform: rotate(-45deg);
     transition-duration: 1s;
   }
 
-  #applygravy {
-    transform: rotate(-45deg);
-    border: solid green 5px;
-    color: green;
-    
-  }
-  #gravy-boat{
+  .gravyon{
+    padding: 1px;
     border-radius: 50%;
+    transform: rotate(-45deg);
+    border: 3px solid #9c1515;
+    width: 32px;
+    height: 32px; 
+    box-sizing: content-box;
+    transition-duration: .2s;
+
   }
-  #gravy {
+  .gravyoff {
+    border-radius: 50%;
+    padding: 1px;
     transition-duration: 3s;
     width: 32px;
     height: 32px; 
+    box-sizing: content-box;
   }
