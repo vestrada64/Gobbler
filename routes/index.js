@@ -36,7 +36,7 @@ router.get('/twitter/oauthcallback', passport.authenticate(
 
 router.get('/logout', function(req, res) {
   req.logout();
-  res.redirect('/login');
+  res.redirect('/');
 });
 
 module.exports = router;

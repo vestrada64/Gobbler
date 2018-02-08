@@ -50,8 +50,8 @@ function deleteGobble(req, res) {
 }
 
 function update(req, res) {
-    Gobble.findByIdAndUpdate(req.params.id, function(err, gobble) {
-        res.render('/edit');
+    Gobble.findByIdAndUpdate(req.params.id, {content: 'This is a test update'}, function(err, gobble) {
+        res.redirect('/gobbles');
     });
 }
 
