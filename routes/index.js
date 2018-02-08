@@ -18,7 +18,7 @@ router.put('/gobbles', gobbleCtrl.update);
 router.get('/show', gobbleCtrl.showAll);
 
 router.get('/', function(req, res) {
-  res.render('login', {user: req.user});
+  res.render('login', {user: req.user, });
 })
 
 router.get('/auth/twitter', passport.authenticate(
@@ -38,17 +38,5 @@ router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/login');
 });
-
-
-
-
-
-// let tweets = [];
-// tweet.get('statuses/home_timeline', { count: 50 }, function(err, data, response){
-//     for(let i = 0; i < data.length; i++) {
-//         tweets = data[i];
-//     };
-// });
-
 
 module.exports = router;
