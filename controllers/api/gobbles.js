@@ -53,6 +53,11 @@ function getAllGobbles(req, res) {
     });
 }
 
+function getOneGobble(req, res) {
+    Gobble.findById(req.params.id, function(err, gobble) {
+        res.status(200).json(gobble);
+    });
+}
 
 
 
@@ -60,6 +65,7 @@ module.exports = {
     createGobble,
     deleteGobble,
     getAllGobbles,
-    updateGobble
+    updateGobble,
+    getOneGobble
 }
 

@@ -12,10 +12,10 @@ var tweet = new Twit({
 })
 
 
-/* GET home page. */
+// landing page --> index page
 router.get('/gobbles', gobbleCtrl.index );
-
-// router.put('/gobbles/:id', gobblesCtrl.update);
+router.put('/gobbles', gobbleCtrl.update);
+router.get('/show', gobbleCtrl.showAll);
 
 router.get('/', function(req, res) {
   res.render('login', {user: req.user});
