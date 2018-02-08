@@ -29,7 +29,7 @@ document.querySelector('#userGobbles').addEventListener('click', function(event)
             credentials: 'include'
         }).then(res => res.json())
         .then(data => {
-            res.render('/gobbles/:id')
+            data.redirect('edit')
         });
     }
 });

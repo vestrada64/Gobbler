@@ -35,10 +35,16 @@ function index(req, res) {
 }
 
 function showAll(req, res) {
-    Gobble.find({}, function(err, gobbles) {
-        res.render('show', {gobbles: gobbles});
+    User.find({}).populate('gobbles').exec(function(err, users) {
+        res.render('all', {users: users});
     });
 }
+
+// function showAll(req, res) {
+//     User.find({}).populate('gobbles'), function(err) {
+//         res.render('show', {users: req.user})
+//     })
+// }
 
 function create(req, res) {
     User.find({}).populate('gobbles').exec(function(err, users) { console.log(users) })
