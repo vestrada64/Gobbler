@@ -34,7 +34,7 @@ document.querySelector('#userGobbles').addEventListener('click', function(event)
     }
 });
 
-const userGobblesEl = document.getElementById('gravy-button');
+var userGobblesEl = document.getElementById('userGobbles');
 userGobblesEl.addEventListener("click", useGravy);
 
 function useGravy(e){
