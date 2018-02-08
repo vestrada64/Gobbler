@@ -14,7 +14,6 @@ function index(req, res) {
     tweet.get('statuses/home_timeline', {count: 50}, function(err, data, response) {
         for(d in data){
             var text = data[d].text;
-
             Timeline.push(text);
             
         }
