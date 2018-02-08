@@ -9,21 +9,24 @@ var tweet = new Twit({
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 })
 
+var Timeline = [];
 function index(req, res) {
-    tweetStream = [];
-    tweet.get('statuses/home_timeline', { count: 50 }, function(err, data, response){
-        for(let i = 0; i < data.length; i++) {
-            tweetStream.push(data[i]);
-        };
+    tweet.get('statuses/home_timeline', {count: 50}, function(err, data, response) {
+        for(d in data){
+            var text = data[d].text;
+
+            Timeline.push(text);
+            
+        }
     });
+    
     if (req.user) { 
         req.user.populate('gobbles', function(err) { 
-          res.render('index', {user: req.user, tweetStream: req.body.tweetStream})
+          res.render('index', {user: req.user, Timeline: Timeline})
         });
     } else {
-        res.render('index', {user: null, tweetStream: req.body.tweetStream })
+        res.render('index', {user: null })
     }
-    
 }
 
 function showAll(req, res) {
