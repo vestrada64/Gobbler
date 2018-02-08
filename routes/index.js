@@ -14,8 +14,8 @@ var tweet = new Twit({
 
 // landing page --> index page
 router.get('/gobbles', gobbleCtrl.index );
-router.put('/gobbles', gobbleCtrl.update);
-router.get('/show', gobbleCtrl.showAll);
+router.put('/gobbles/:id', gobbleCtrl.update);
+router.get('/gobbles/all', gobbleCtrl.showAll);
 
 router.get('/', function(req, res) {
   res.render('login', {user: req.user});

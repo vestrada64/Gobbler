@@ -37,35 +37,31 @@
       </nav>
         <div class="wrapper" >
         <% if (user){ %>
-          <img src="<%= user.avatar %>" alt="">
+          <img id="avatarImg" src="<%= user.avatar %>" alt="">
           <textarea name="gobble-input" id="gobble" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
           <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
           <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           <div class="userGobbles">
+              <a href="/gobbles/all">See All Gobbles</a><br>
+              <hr>
             <% for(let i = 0; i < user.gobbles.length; i++){ %>
             <div id=<% user.gobbles[i] %> >
+              <strong>@<%= user.displayName %>&nbsp;|&nbsp;</strong><%= user.gobbles[i].content %>
 
-                <%= user.gobbles[i].content %>
+
 
                 
                 <!-- credit goes to Freepik on flaticon.com -->
                 <span><img id="gravy" src="https://i.imgur.com/JmgloVQ.png"></span>
-                <input type="button" value="update" id="updatebtn">
-
-            
                 <input type="button" value="update" id="updatebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
-
-                <strong>@<%= user.displayName %>&nbsp;|&nbsp;</strong><%= user.gobbles[i].content %>
-                
-                
-
-
                 <input type="button" value="delete" id="deletebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
               </div>
+              <hr>
             <% } %>
           </div>
         <% }; %>
-        </div>        
+        </div>  
+           
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
