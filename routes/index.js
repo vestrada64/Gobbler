@@ -5,12 +5,6 @@ var passport = require('passport');
 var gobbleCtrl = require('../controllers/gobbles')
 var Twit = require('twit');
 
-var tweet = new Twit({
-  consumer_key: process.env.TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  access_token: process.env.TWITTER_ACCESS_TOKEN,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-});
 
 
 router.get('/gobbles', gobbleCtrl.index);
@@ -23,7 +17,7 @@ router.get('/', function(req, res) {
 
 router.get('/auth/twitter', passport.authenticate(
   'twitter',
-  { scope: 'profile' }
+  { scope: 'session' }
 ))
 
 router.get('/twitter/oauthcallback', passport.authenticate(
@@ -36,7 +30,7 @@ router.get('/twitter/oauthcallback', passport.authenticate(
 
 router.get('/logout', function(req, res) {
   req.logout();
-  res.redirect('/login');
+  res.redirect('/');
 });
 
 module.exports = router;
