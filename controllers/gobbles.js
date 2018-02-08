@@ -2,8 +2,14 @@ var User = require('../models/User');
 var Gobble = require('../models/Gobble');
 var Twit = require('twit');
 
+var tweet = new Twit({
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token: process.env.TWITTER_ACCESS_TOKEN,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+})
+
 function index(req, res) {
-    
     if (req.user) { 
         req.user.populate('gobbles', function(err) { 
           res.render('index', {user: req.user })
@@ -11,6 +17,10 @@ function index(req, res) {
     } else {
         res.render('index', {user: null })
     }
+    var stream = tweet.stream('statuses/sample')
+    stream.on('t', function(tweet){
+        console.log(t)
+    })
 }
 
 function showAll(req, res) {
