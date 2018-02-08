@@ -23,11 +23,7 @@ function createGobble(req, res) {
             });
         });
     })
-    tweet.get('statuses/home_timeline', { count: 50 }, function(err, data, response){
-        console.log(data.text);
-    })
     //tweet.post('statuses/update', { status: req.body.content + "\nThis Tweet was tweeted through Gobbler! Its like Twitter, but with an edit button!" }, function(err, data, response){
-    
 }
 
 function deleteGobble(req, res) {
