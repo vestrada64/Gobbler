@@ -9,18 +9,24 @@ var tweet = new Twit({
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 })
 
+var Timeline = [];
 function index(req, res) {
+    tweet.get('statuses/home_timeline', {count: 50}, function(err, data, response) {
+        for(d in data){
+            var text = data[d].text;
+
+            Timeline.push(text);
+            
+        }
+    });
+    
     if (req.user) { 
         req.user.populate('gobbles', function(err) { 
-          res.render('index', {user: req.user })
+          res.render('index', {user: req.user, Timeline: Timeline})
         });
     } else {
         res.render('index', {user: null })
     }
-    var stream = tweet.stream('statuses/sample')
-    stream.on('t', function(tweet){
-        console.log(t)
-    })
 }
 
 function showAll(req, res) {

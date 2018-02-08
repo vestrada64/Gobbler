@@ -31,6 +31,5 @@
 * Having a feed of other user's Gobbles, basically a timeline.
 
 ## Future Features
-* Be able to like another user's Gobble and instead of a heart icon we use a gravy icon pouring gravy as you proceed to like the Gobble.
-* Being able to Gobble, Regobble, favorite Gobbles, and comment on Gobbles. 
-* Being able to search for another user and seeing their Gobbles. 
+* Being able to Regobble, favorite Gobbles, and comment on Gobbles. 
+* Being able to search for another user and seeing their Gobbles.

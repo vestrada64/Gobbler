@@ -80,9 +80,11 @@
                       <button class="btn btn red darken-3" value="delete" data-gobbleid="<%= user.gobbles[i]._id %>">
                         Delete
                       </button>
+                         <!-- credit goes to Freepik on flaticon.com -->
+                    <div id="gravy-button"><img class="gravyoff" src="https://i.imgur.com/JmgloVQ.png"></div>
                       <div class="col s1 offset-12">
-                        <span><img class="gravyoff" src="https://i.imgur.com/JmgloVQ.png">
-                        </span>
+                   
+                        
                       </div>
 
                     </div>
@@ -92,12 +94,19 @@
           </li>
         </ul>
       </div>
-
+       <div>
+            <% for(t in Timeline){ %>
+              <ul>
+                <li><%= Timeline[t] %></li>
+              </ul>
+            <% };%>  
+          </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <script>
         $(".button-collapse").sideNav();
       </script>
+
 
     </body>
   </html>

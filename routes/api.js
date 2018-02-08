@@ -17,7 +17,5 @@ router.delete('/gobbles/:id', gobblesCtrl.deleteGobble);
 router.put('/gobbles/:id', gobblesCtrl.updateGobble);
 
 // router.delete('/users/:id/gobbles/:id', gobblesCtrl.deleteGobble);
-
 // router.put('/users/:id/gobbles/:id', gobblesCtrl.updateGobble);
-
 module.exports = router;
