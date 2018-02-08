@@ -12,9 +12,11 @@
     <% users.forEach(function(i) { %>
         <ul>
             <li>
-                <strong><%= i.displayName %></strong><br>
+                <img src=<%= i.avatar %>><strong>&nbsp;|&nbsp;<%= i.displayName %></strong><br>
                 <% i.gobbles.forEach(function(gobble) { %>
-                    <%= gobble.content %><br>
+                    <ul>
+                        <li><%= gobble.content %><br></li>
+                    </ul>
                 <% }) %>
             </li>
         </ul>
