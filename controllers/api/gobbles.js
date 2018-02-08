@@ -11,7 +11,9 @@ var tweet = new Twit({
 
 function createGobble(req, res) {
     console.log(req.body);
-    var gobble = new Gobble(req.body);
+    let gobble = new Gobble(req.body);
+    // let twitterExport = encodeURIComponent(gobble.content);
+    // const twitterURL= "http://twitter.comlhoem?status=";
     gobble.save(function(err) {
         if (err) console.log(err);
         req.user.gobbles.push(gobble._id);
@@ -19,11 +21,11 @@ function createGobble(req, res) {
             req.user.populate('gobbles', function(err){
                 res.status(201).json(req.user);
             });
-        })
+        });
+    })
 
-    })
-    tweet.post('statuses/update', { status: req.body.content + "\nThis Tweet was tweeted through Gobbler! Its like Twitter, but with an edit button!" }, function(err, data, response){
-    })
+    //tweet.post('statuses/update', { status: req.body.content + "\nThis Tweet was tweeted through Gobbler! Its like Twitter, but with an edit button!" }, function(err, data, response){
+    
 }
 
 function deleteGobble(req, res) {

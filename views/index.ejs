@@ -40,11 +40,14 @@
           <img src="<%= user.avatar %>" alt="">
           <textarea name="gobble-input" id="gobble" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
           <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           <div class="userGobbles">
             <% for(let i = 0; i < user.gobbles.length; i++){ %>
             <div id=<% user.gobbles[i] %> >
                 <%= user.gobbles[i].content %>
-                <%=  %>
+                
+                <!-- credit goes to Freepik on flaticon.com -->
+                <span><img id="gravy" src="https://i.imgur.com/JmgloVQ.png"></span>
                 <input type="button" value="update" id="updatebtn">
                 <input type="button" value="delete" id="deletebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
               </div>

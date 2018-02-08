@@ -132,3 +132,23 @@ div.gob {
      -moz-border-radius: 8px;
           border-radius: 8px;
   }
+
+  #gravy:hover {
+    transform: rotate(-45deg);
+    transition-duration: 1s;
+  }
+
+  #applygravy {
+    transform: rotate(-45deg);
+    border: solid green 5px;
+    color: green;
+    
+  }
+  #gravy-boat{
+    border-radius: 50%;
+  }
+  #gravy {
+    transition-duration: 3s;
+    width: 32px;
+    height: 32px; 
+  }
