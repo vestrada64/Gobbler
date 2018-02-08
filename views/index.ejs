@@ -44,11 +44,22 @@
           <div class="userGobbles">
             <% for(let i = 0; i < user.gobbles.length; i++){ %>
             <div id=<% user.gobbles[i] %> >
+
                 <%= user.gobbles[i].content %>
+
                 
                 <!-- credit goes to Freepik on flaticon.com -->
                 <span><img id="gravy" src="https://i.imgur.com/JmgloVQ.png"></span>
                 <input type="button" value="update" id="updatebtn">
+
+            
+                <input type="button" value="update" id="updatebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
+
+                <strong>@<%= user.displayName %>&nbsp;|&nbsp;</strong><%= user.gobbles[i].content %>
+                
+                
+
+
                 <input type="button" value="delete" id="deletebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
               </div>
             <% } %>
