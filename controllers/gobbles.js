@@ -28,6 +28,12 @@ function deleteGobble(req, res) {
 }
 
 function update(req, res) {
+    Gobble.findByIdAndUpdate(req.params.id, function(err, gobble) {
+        res.render('/edit');
+    });
+}
+
+function edit(req, res) {
 
 }
 

@@ -45,7 +45,7 @@
             <div id=<% user.gobbles[i] %> >
                 <%= user.gobbles[i].content %>
                 <%=  %>
-                <input type="button" value="update" id="updatebtn">
+                <input type="button" value="update" id="updatebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
                 <input type="button" value="delete" id="deletebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
               </div>
             <% } %>
