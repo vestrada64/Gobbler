@@ -46,11 +46,11 @@
           <div class="userGobbles">
               <a href="/gobbles/all">See All Gobbles</a><br>
               <hr>
-            <% for(let i = 0; i < user.gobbles.length; i++){ %>
+            <% for(let i = user.gobbles.length; i > 0; i--){ %>
             <div id=<% user.gobbles[i] %> >
               <strong>@<%= user.displayName %>&nbsp;|&nbsp;</strong><%= user.gobbles[i].content %>                
                 <!-- credit goes to Freepik on flaticon.com -->
-                <span><img id="gravy" src="https://i.imgur.com/JmgloVQ.png"></span>
+                <div id="gravy-button"><img class="gravyoff" src="https://i.imgur.com/JmgloVQ.png"></div>
                 <input type="button" value="update" id="updatebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
                 <input type="button" value="delete" id="deletebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
 
