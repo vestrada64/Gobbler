@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
 
 router.get('/auth/twitter', passport.authenticate(
   'twitter',
-  { scope: 'session' }
+  { scope: 'profile' }
 ))
 
 router.get('/twitter/oauthcallback', passport.authenticate(

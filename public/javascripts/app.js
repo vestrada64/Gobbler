@@ -15,6 +15,7 @@ function gobble() {
 }
 
 document.querySelector('#userGobbles').addEventListener('click', function(event){
+    console.log('hello')
     if (event.target.value === 'delete') {
         fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
             method: 'DELETE',
