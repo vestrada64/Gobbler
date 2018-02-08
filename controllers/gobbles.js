@@ -3,15 +3,15 @@ var Gobble = require('../models/Gobble');
 var Twit = require('twit');
 var request = require("request");
 
-
-
-
 var tweet = new Twit({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     access_token: process.env.TWITTER_ACCESS_TOKEN,
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 })
+
+
+
 
 var Timeline = [];
 function index(req, res) {
@@ -46,7 +46,7 @@ function showAll(req, res) {
 //     })
 // }
 
-function create(req, res) {
+function createGobble(req, res) {
     User.find({}).populate('gobbles').exec(function(err, users) { console.log(users) })
     req.user.gobbles.push({text: req.body.gobble});
     req.user.save(function(err) {
@@ -72,7 +72,7 @@ function edit(req, res) {
 
 module.exports = {
     index: index,
-    create: create,
+    createGobble: createGobble,
     delete: deleteGobble,
     update: update,
     showAll
