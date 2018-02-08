@@ -14,8 +14,7 @@ function gobble() {
     });
 }
 
-
-document.querySelector('.userGobbles').addEventListener('click', function(event){
+document.querySelector('#userGobbles').addEventListener('click', function(event){
     if (event.target.value === 'delete') {
         fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
             method: 'DELETE',
@@ -35,3 +34,19 @@ document.querySelector('.userGobbles').addEventListener('click', function(event)
     }
 });
 
+const userGobblesEl = document.getElementById('gravy-button');
+userGobblesEl.addEventListener("click", useGravy);
+
+function useGravy(e){
+    console.log(e.target);
+    if (e.target.tagName === 'IMG') {
+        if (e.target.className == 'gravyoff') {
+            e.target.className = 'gravyon';
+            e.target.parentNode.setAttribute("style", "border: 3px solid #9c1515; transition-duration:0.5s");
+        } else {
+            e.target.className = 'gravyoff';
+            e.target.parentNode.setAttribute("style", "border:none; transition-duration:1s");
+            
+        }
+    }
+}

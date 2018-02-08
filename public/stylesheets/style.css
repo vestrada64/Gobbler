@@ -79,7 +79,7 @@
 }
 
 .filt {
-  height: 100%;
+  height: 1200px;
   width: 100%;
   background-color: rgba(139, 0, 0, 0.562);
   position: absolute;
@@ -133,28 +133,37 @@ div.gob {
           border-radius: 8px;
   }
 
-  #gravy:hover {
+  .gravyoff:hover {
     transform: rotate(-45deg);
     transition-duration: 1s;
+    border: transparent;
   }
 
-  #applygravy {
+  .gravyon {
     transform: rotate(-45deg);
-    border: solid green 5px;
-    color: green;
-    
+    width: 32px;
+    height: 32px; 
+    transition-duration: .2s;
   }
-  #gravy-boat{
-    border-radius: 50%;
-  }
-  #gravy {
+
+  .gravyoff {
     transition-duration: 3s;
     width: 32px;
     height: 32px; 
+    box-sizing: border-box;
+
+
   }
 
   #avatarImg {
     border-radius: 50%;
     height: 80px;
     width: 80px;
+}
+
+  #gravy-button {
+    border-radius: 50%;
+    padding: 5px;
+    box-sizing: content-box;
+    display: inline-block;
   }
