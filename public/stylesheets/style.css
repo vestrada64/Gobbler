@@ -3,10 +3,7 @@
   box-sizing: content-box;
 }
 
-.gravyoff {
-  width: 5px;
-  height:5px;
-}
+
   
 
 .land {
@@ -82,7 +79,7 @@
 }
 
 .filt {
-  height: 1200px;
+  height: 100%;
   width: 100%;
   background-color: rgba(139, 0, 0, 0.562);
   position: absolute;
