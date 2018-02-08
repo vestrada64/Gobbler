@@ -1,6 +1,10 @@
 var User = require('../models/User');
 var Gobble = require('../models/Gobble');
 var Twit = require('twit');
+var request = require("request");
+
+
+
 
 var tweet = new Twit({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -11,15 +15,15 @@ var tweet = new Twit({
 
 var Timeline = [];
 function index(req, res) {
-    tweet.get('statuses/home_timeline', {count: 50}, function(err, data, response) {
+    // create home timeline
+    
+    tweet.get('statuses/home_timeline', {count: 10}, function(err, data, response) {
         for(d in data){
             var text = data[d].text;
-
             Timeline.push(text);
-            
         }
     });
-    
+    // render the page
     if (req.user) { 
         req.user.populate('gobbles', function(err) { 
           res.render('index', {user: req.user, Timeline: Timeline})
@@ -27,6 +31,7 @@ function index(req, res) {
     } else {
         res.render('index', {user: null })
     }
+
 }
 
 function showAll(req, res) {
@@ -45,7 +50,7 @@ function create(req, res) {
 
 function deleteGobble(req, res) {
     Gobble.findByIdAndRemove(req.params.id, function(err, user){
-        // res.redirect
+        res.redirect('')
     })
 }
 
