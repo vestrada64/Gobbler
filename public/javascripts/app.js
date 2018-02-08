@@ -38,7 +38,6 @@ const userGobblesEl = document.getElementById('userGobbles');
 userGobblesEl.addEventListener("click", useGravy);
 
 function useGravy(e){
-    console.log(e.target.tagName);
     if (e.target.tagName === 'IMG') {
         if (e.target.className == 'gravyoff') {
             e.target.className = 'gravyon';

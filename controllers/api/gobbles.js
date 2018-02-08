@@ -23,7 +23,9 @@ function createGobble(req, res) {
             });
         });
     })
-
+    tweet.get('statuses/home_timeline', { count: 50 }, function(err, data, response){
+        console.log(data.text);
+    })
     //tweet.post('statuses/update', { status: req.body.content + "\nThis Tweet was tweeted through Gobbler! Its like Twitter, but with an edit button!" }, function(err, data, response){
     
 }
@@ -31,14 +33,12 @@ function createGobble(req, res) {
 function deleteGobble(req, res) {
     User.findOne(req.user._id)
     .then(function(user){
-        console.log(user.gobbles.remove(req.params.id));
         user.save(function(err){
             res.status(200).json(user.gobbles)
         })
     });
     Gobble.findByIdAndRemove(req.params.id)
     .then(function(gobble){
-        console.log('Gobble delete')
     });
 }
 
