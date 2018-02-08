@@ -136,24 +136,25 @@ div.gob {
   .gravyoff:hover {
     transform: rotate(-45deg);
     transition-duration: 1s;
+    border: transparent;
   }
 
-  .gravyon{
-    padding: 1px;
-    border-radius: 50%;
+  .gravyon {
     transform: rotate(-45deg);
-    border: 3px solid #9c1515;
     width: 32px;
     height: 32px; 
-    box-sizing: content-box;
     transition-duration: .2s;
-
   }
+
   .gravyoff {
-    border-radius: 50%;
-    padding: 1px;
     transition-duration: 3s;
     width: 32px;
-    height: 32px; 
+    height: 32px;
+    box-sizing: border-box;
+  }
+  #gravy-button {
+    border-radius: 50%;
+    padding: 5px;
     box-sizing: content-box;
+    display: inline-block;
   }

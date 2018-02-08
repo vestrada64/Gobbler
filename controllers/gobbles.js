@@ -10,17 +10,20 @@ var tweet = new Twit({
 })
 
 function index(req, res) {
+    tweetStream = [];
+    tweet.get('statuses/home_timeline', { count: 50 }, function(err, data, response){
+        for(let i = 0; i < data.length; i++) {
+            tweetStream.push(data[i]);
+        };
+    });
     if (req.user) { 
         req.user.populate('gobbles', function(err) { 
-          res.render('index', {user: req.user })
+          res.render('index', {user: req.user, tweetStream: req.body.tweetStream})
         });
     } else {
-        res.render('index', {user: null })
+        res.render('index', {user: null, tweetStream: req.body.tweetStream })
     }
-    var stream = tweet.stream('statuses/sample')
-    stream.on('t', function(tweet){
-        console.log(t)
-    })
+    
 }
 
 function showAll(req, res) {
