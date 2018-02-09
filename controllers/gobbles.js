@@ -19,6 +19,7 @@ function index(req, res) {
     // create home timeline
     
     tweet.get('statuses/home_timeline', { count: 10 }, function(err, data, response) {
+        if(err) {console.log(err)};
         Timeline = [];
         for(d in data){
             var text = data[d].text;
