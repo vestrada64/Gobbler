@@ -15,10 +15,10 @@ var Timeline = [];
 
 
 function index(req, res) {
-    activeUser = req.user['twitterId'];
+    // activeUser = req.user['twitterId'];
     // create home timeline
-    console.log(activeUser);
-    tweet.get('statuses/home_timeline', { user_id: activeUser }, function(err, data, response) {
+    
+    tweet.get('statuses/home_timeline', { count: 10 }, function(err, data, response) {
         Timeline = [];
         for(d in data){
             var text = data[d].text;
