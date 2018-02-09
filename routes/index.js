@@ -6,20 +6,21 @@ var gobbleCtrl = require('../controllers/gobbles')
 var Twit = require('twit');
 
 
-
 // landing page --> index page
 router.get('/gobbles', gobbleCtrl.index );
-router.put('/gobbles/:id', gobbleCtrl.update);
 router.get('/gobbles/all', gobbleCtrl.showAll);
+router.get('/gobbles/edit/:id', gobbleCtrl.editGobble);
+router.put('/gobbles/:id', gobbleCtrl.updateGobble);
+
 
 
 router.get('/', function(req, res) {
-  res.render('login', {user: req.user, });
+  res.render('login', {user: req.user });
 })
 
 router.get('/auth/twitter', passport.authenticate(
   'twitter',
-  { scope: 'session' }
+  { scope: 'profile' }
 ))
 
 router.get('/twitter/oauthcallback', passport.authenticate(
