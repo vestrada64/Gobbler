@@ -8,8 +8,8 @@
 
 ## Technologies used:
 * HTML, CSS, and Javascript
-* Twit
-* Passport
+* Twit(https://github.com/ttezel/twit)
+* Passport.js
 * Twitter API
 * Node.js
 * Express
