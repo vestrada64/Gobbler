@@ -15,7 +15,7 @@ var Timeline = [];
 
 
 function index(req, res) {
-    activeUser = req.user['twitterId'];
+    // activeUser = req.user['twitterId'];
     // create home timeline
     
     tweet.get('statuses/home_timeline', { count: 10 }, function(err, data, response) {
