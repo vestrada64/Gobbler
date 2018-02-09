@@ -39,7 +39,10 @@ var userGobblesEl = document.getElementById('userGobbles');
 userGobblesEl.addEventListener("click", useGravy);
 
 function useGravy(e){
+<<<<<<< HEAD
+=======
 
+>>>>>>> b01932bd65c2d60d06264e0d9bb6ff1f3a6ad289
     if (e.target.tagName === 'IMG') {
         if (e.target.className == 'gravyoff') {
             e.target.className = 'gravyon';
