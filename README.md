@@ -12,6 +12,8 @@
 * Passport.js
 * Twitter API
 * Node.js
+* Bootstrap
+* Materialize
 * Express
 * Mongoose
 * MongoDB
@@ -31,9 +33,13 @@
 | /api/gobbles/:id  | returns a single gobble  |
 
 ## Unsolved Problems 
-* Using web sockets for real time communication b/w clients and servers.
+* Getting oauth tokens from login / multi-user oauth
+* Making and preserving likes
+* Twitter/Gobbler action integration
+
 
 ## Future Enhancements
-* Being able to ReGobble a Gobble.
-* Adding like functionality 
-* Being able to search for another user.
+* Being able to Regobble and Retweet a Gobble.
+* Search twitter users.
+* Socket.io
+* Aquire higher rate limit
