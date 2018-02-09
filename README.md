@@ -20,7 +20,6 @@
 # Links
 * [PitchDeck](https://docs.google.com/presentation/d/1QLT0XjC2glTM7SR3hSHRJo-ku6IO8q_o8ifskjvxZc8/edit#slide=id.p)
 * [Trello Board](https://trello.com/b/qEYRYeiv/wdi-gobbler)
-
 * [Heroku](http://wdi-gobbler.herokuapp.com/)
 
 
@@ -33,8 +32,8 @@
 
 ## Unsolved Problems 
 * Using web sockets for real time communication b/w clients and servers.
-* Having a feed of other user's Gobbles, basically a timeline.
 
 ## Future Enhancements
-* Being able to Regobble, favorite Gobbles, and comment on Gobbles. 
-* Being able to search for another user and seeing their Gobbles.
+* Being able to ReGobble a Gobble.
+* Adding like functionality 
+* Being able to search for another user.
