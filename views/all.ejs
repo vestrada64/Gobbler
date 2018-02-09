@@ -16,15 +16,10 @@
     <div class="nav-wrapper red darken-4">
       <a href="/gobbles" class="brand-logo center">Gobbler</a>
       <ul class="right hide-on-med-and-down">
-      <% if (users) { %>
         <li >
-          <a href="/gobbles/all" class="left-align">See All Gobbles</a>
+          <a href="/gobbles/" class="left-align">My Gobbles</a>
         </li>
         <li class="nav-item">
-          <a href="/logout">Logout</a>
-      <% } else { %>
-          <a href="/auth/twitter">Login with twitter</a>
-      <% } %>
         </li>
       </ul>
     </div>
@@ -35,10 +30,12 @@
         <div class="card ">
           <div class="card-content">
             <span class="card-title center-align ">
+              <% if (users) { %>
               <h4>
                 All Gobbles
               </h4>   
             </span>
+
             <% users.forEach(function(i) { %>
             <ul>
               <li>
@@ -52,6 +49,7 @@
                 <hr>
               </ul>
             <% }) %>
+            <% } %>
           </div>
         </div>
       </div>
