@@ -39,13 +39,13 @@
             <div class="card-content">
                 <% if (user){ %>
                   <img id="avatarImg" src="<%= user.avatar %>" alt="">
-                  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                  <a href="https://twitter.com/intent/tweet?text=Gobble%20On%21¨" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                   <h4><strong>@<%= user.displayName %></strong></h4>
                   <div class="row">
                     <form class="col s12">
                       <div class="row">
                         <div class="input-field col s12">
-                          <input placeholder="Gobble on bro..." class="materialize-textarea" name="gobble-input" id="gobble">
+                          <input placeholder="Gobble on bro..." class="materialize-textarea" name="gobble-input" id="gobble" maxlength="280">
                         </div>
                       </div>
                     </form>
@@ -66,6 +66,10 @@
                     <% } %>
                   </div>
                   <div>
+                    <br>
+                    <hr>
+                    <br>
+                    <br>
                     <h4 class="tl" >Twitter Feed</h4>
                     <% for(t in Timeline){ %>
                       <ul>
