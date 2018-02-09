@@ -14,8 +14,7 @@ function gobble() {
     });
 }
 
-document.querySelector('.userGobbles').addEventListener('click', function(event){
-    console.log('hello')
+document.querySelector('#userGobbles').addEventListener('click', function(event){
     if (event.target.value === 'delete') {
         fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
             method: 'DELETE',
@@ -40,7 +39,6 @@ var userGobblesEl = document.getElementById('userGobbles');
 userGobblesEl.addEventListener("click", useGravy);
 
 function useGravy(e){
-    console.log(e.target);
     if (e.target.tagName === 'IMG') {
         if (e.target.className == 'gravyoff') {
             e.target.className = 'gravyon';

@@ -39,7 +39,7 @@
         <div class="wrapper" >
         <% if (user){ %>
           <img id="avatarImg" src="<%= user.avatar %>" alt="">
-          <textarea name="gobble-input" id="gobble" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
+          <textarea name="gobble-input" id="gobble" cols="60" maxlength="280" height="140px" placeholder="Gobble on Bro..."></textarea>
           <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
           <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -54,6 +54,7 @@
                 
                 <input type="button" value="delete" id="deletebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
                 <a href="/gobbles/edit/<%= user.gobbles[i]._id %>"><input type="button" value="edit" id="updatebtn" data-gobbleid="<%= user.gobbles[i]._id %>"></a>
+
               </div>
               <hr>
             <% } %>
