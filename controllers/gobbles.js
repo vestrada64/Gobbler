@@ -60,20 +60,24 @@ function deleteGobble(req, res) {
     })
 }
 
-function update(req, res) {
-    Gobble.findByIdAndUpdate(req.params.id, {content: 'This is a test update'}, function(err, gobble) {
-        res.redirect('/gobbles');
+
+function editGobble(req, res) {
+    Gobble.findById(req.params.id, function(err, gobble) {
+        if (err) return next(err);
+        res.render('edit', {gobble: gobble, user: req.user});
     });
 }
-
-function edit(req, res) {
-
+function updateGobble(req, res) {
+    Gobble.findByIdAndUpdate(req.params.id, {content: req.body.gobbleinput}, function(err, gobble) {
+    res.redirect('/gobbles');
+    });
 }
 
 module.exports = {
     index: index,
     createGobble: createGobble,
     delete: deleteGobble,
-    update: update,
+    updateGobble: updateGobble,
+    editGobble: editGobble,
     showAll
 };

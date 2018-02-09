@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Edit the gobble</title>
 </head>
 <body>
     <div class="wrapper" >
         <% if (user){ %>
             <img src="<%= user.avatar %>" alt="">
-            <textarea name="gobble-input" id="gobble" cols="60" height="140px"></textarea>
-            <input type="SUBMIT" value="Submit Edit" id="editButton">
+
+            <form method="POST" action="/gobbles/<%= gobble._id %>?_method=PUT">
+                <textarea name="gobbleinput" id="gobble" cols="60" height="140px"><%= gobble.content %></textarea>
+                <input type="SUBMIT" value="Submit" id="updateButton">
+            </form>
         <% } %>    
-    
 </body>
 </html>

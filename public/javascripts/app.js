@@ -14,7 +14,8 @@ function gobble() {
     });
 }
 
-document.querySelector('#userGobbles').addEventListener('click', function(event){
+document.querySelector('.userGobbles').addEventListener('click', function(event){
+    console.log('hello')
     if (event.target.value === 'delete') {
         fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
             method: 'DELETE',
@@ -26,6 +27,7 @@ document.querySelector('#userGobbles').addEventListener('click', function(event)
     } else if (event.target.value === 'update') {
         fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
             method: 'PUT',
+            body: JSON.stringify({ content: updatedContent}),
             credentials: 'include'
         }).then(res => res.json())
         .then(data => {
@@ -34,7 +36,7 @@ document.querySelector('#userGobbles').addEventListener('click', function(event)
     }
 });
 
-const userGobblesEl = document.getElementById('gravy-button');
+var userGobblesEl = document.getElementById('userGobbles');
 userGobblesEl.addEventListener("click", useGravy);
 
 function useGravy(e){
