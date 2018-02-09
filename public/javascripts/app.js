@@ -22,7 +22,10 @@ document.querySelector('#userGobbles').addEventListener('click', function(event)
         }).then(res => res.json())
         .then(data => {
             window.location.reload();
-        });
+        })
+        .catch(function(err) {
+            console.log(err);
+        })
     } else if (event.target.value === 'update') {
         fetch(`/api/gobbles/${event.target.dataset.gobbleid}`, {
             method: 'PUT',
