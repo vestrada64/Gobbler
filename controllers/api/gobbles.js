@@ -3,6 +3,7 @@ var User = require('../../models/User');
 var Gobble = require('../../models/Gobble');
 var Twit = require('twit');
 
+
 var tweet = new Twit({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -39,11 +40,15 @@ function deleteGobble(req, res) {
 }
 
 function updateGobble(req, res) {
-    Gobble.findByIdAndUpdate(req.params.id, req.body, {new: true},
-    function(err, gobble) {
-        res.status(200).json(gobble);
-    })
-}
+    Gobble.findById(id, function(err, gobble)  {
+        if (err) return handleError(err);
+        gobble.content = updatedContent;
+        gobble.save(function(err, updatedGobble){
+            if(err) return console.log(err);
+            res.send(updatedGobble);
+        });
+     });
+};
 
 function getAllGobbles(req, res) {
     Gobble.find({}, function(err, gobble) {
