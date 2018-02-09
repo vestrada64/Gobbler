@@ -1,25 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="https://images.vexels.com/media/users/3/137028/isolated/preview/52f6a83cbfc0e6a006a7222efdeb9752-turkey-standing-silhouette-by-vexels.png">   
+  <link rel="stylesheet" href="stylesheets/style.css">   
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gobbler</title>
 </head>
-<body>
-    <h1>The World of Gobbles on Gobbler</h1>
-    <a href="/gobbles">Return To My Gobbles</a>
-    <% users.forEach(function(i) { %>
-        <ul>
-            <li>
-                <img src=<%= i.avatar %>><strong>&nbsp;|&nbsp;<%= i.displayName %></strong><br>
-                <% i.gobbles.forEach(function(gobble) { %>
-                    <ul>
-                        <li><%= gobble.content %><br></li>
-                    </ul>
-                <% }) %>
-            </li>
-        </ul>
-    <% }) %>
+<body style="background-color:#E7ECF0">
+  <nav>
+    <div class="nav-wrapper red darken-4">
+      <a href="/gobbles" class="brand-logo center">Gobbler</a>
+      <ul class="right hide-on-med-and-down">
+        <li >
+          <a href="/gobbles" class="left-align">My Gobbles</a>
+        </li>
+        <li class="nav-item">
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row valign-wrapper">
+      <div class="col s12 valign">
+        <div class="card ">
+          <div class="card-content">
+            <span class="card-title center-align ">
+              <% if (users) { %>
+              <h4>
+                All Gobbles
+              </h4>   
+            </span>
+            <% users.forEach(function(i) { %>
+            <ul>
+              <li>
+                <img src=<%= i.avatar %> class="circle" ><strong style="font-size:20px">&nbsp;|&nbsp;<%= i.displayName %></strong><br>
+            <% i.gobbles.forEach(function(gobble) { %>
+            <ul>
+              <li style="font-size:18px"><%= gobble.content %><br></li>
+            </ul>
+            <% }) %>
+              </li>
+                <hr>
+              </ul>
+            <% }) %>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="javascripts/app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script>
+    $('#textarea1').val('New Text');
+    $('#textarea1').trigger('autoresize');
+  </script>
 </body>
 </html>

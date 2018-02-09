@@ -39,10 +39,14 @@ var userGobblesEl = document.getElementById('userGobbles');
 userGobblesEl.addEventListener("click", useGravy);
 
 function useGravy(e){
+<<<<<<< HEAD
+=======
+
+>>>>>>> b01932bd65c2d60d06264e0d9bb6ff1f3a6ad289
     if (e.target.tagName === 'IMG') {
         if (e.target.className == 'gravyoff') {
             e.target.className = 'gravyon';
-            e.target.parentNode.setAttribute("style", "border: 3px solid #9c1515; transition-duration:0.5s");
+//             e.target.parentNode.setAttribute("style", "border: 3px solid #9c1515; transition-duration:0.5s; padding:5px; border-radius: 50%;");
         } else {
             e.target.className = 'gravyoff';
             e.target.parentNode.setAttribute("style", "border:none; transition-duration:1s");
