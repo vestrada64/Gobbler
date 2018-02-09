@@ -10,14 +10,16 @@ var tweet = new Twit({
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 })
 
-
-
-
+var activeUser = "";
 var Timeline = [];
+
+
 function index(req, res) {
+    activeUser = req.user['twitterId'];
     // create home timeline
     
-    tweet.get('statuses/home_timeline', {count: 10}, function(err, data, response) {
+    tweet.get('statuses/home_timeline', { count: 10 }, function(err, data, response) {
+        Timeline = [];
         for(d in data){
             var text = data[d].text;
             Timeline.push(text);
@@ -40,12 +42,6 @@ function showAll(req, res) {
     });
 }
 
-// function showAll(req, res) {
-//     User.find({}).populate('gobbles'), function(err) {
-//         res.render('show', {users: req.user})
-//     })
-// }
-
 function createGobble(req, res) {
     User.find({}).populate('gobbles').exec(function(err, users) { console.log(users) })
     req.user.gobbles.push({text: req.body.gobble});
@@ -59,7 +55,6 @@ function deleteGobble(req, res) {
         res.redirect('')
     })
 }
-
 
 function editGobble(req, res) {
     Gobble.findById(req.params.id, function(err, gobble) {
@@ -79,5 +74,5 @@ module.exports = {
     delete: deleteGobble,
     updateGobble: updateGobble,
     editGobble: editGobble,
-    showAll
+    showAll: showAll
 };
