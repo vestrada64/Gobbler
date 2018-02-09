@@ -43,7 +43,7 @@ function useGravy(e){
     if (e.target.tagName === 'IMG') {
         if (e.target.className == 'gravyoff') {
             e.target.className = 'gravyon';
-            e.target.parentNode.setAttribute("style", "border: 3px solid #9c1515; transition-duration:0.5s; padding:5px; border-radius: 50%;");
+//             e.target.parentNode.setAttribute("style", "border: 3px solid #9c1515; transition-duration:0.5s; padding:5px; border-radius: 50%;");
         } else {
             e.target.className = 'gravyoff';
             e.target.parentNode.setAttribute("style", "border:none; transition-duration:1s");
