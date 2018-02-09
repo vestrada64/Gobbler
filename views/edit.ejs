@@ -2,19 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit the gobble</title>
+    <link rel="icon" href="https://images.vexels.com/media/users/3/137028/isolated/preview/52f6a83cbfc0e6a006a7222efdeb9752-turkey-standing-silhouette-by-vexels.png">   
+    <link rel="stylesheet" href="stylesheets/style.css">   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gobbler</title>
 </head>
-<body>
-    <div class="wrapper" >
-        <% if (user){ %>
-            <img src="<%= user.avatar %>" alt="">
-
-            <form method="POST" action="/gobbles/<%= gobble._id %>?_method=PUT">
-                <textarea name="gobbleinput" id="gobble" cols="60" height="140px"><%= gobble.content %></textarea>
-                <input type="SUBMIT" value="Submit" id="updateButton">
-            </form>
-        <% } %>    
+<body style="background-color:#E7ECF0">
+<!-- navbar -->
+    <nav>
+        <div class="nav-wrapper red darken-4">
+            <a href="/gobbles" class="brand-logo center">Gobbler</a>
+            <ul class="right hide-on-med-and-down">
+            <% if (user) { %>
+            <li >
+                <a href="/gobbles/all" class="left-align">See All Gobbles</a>
+            </li>
+            <li class="nav-item">
+                <a href="/logout">Logout</a>
+                <% } else { %>
+                <a href="/auth/twitter">Login with twitter</a>
+                <% } %>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row valign-wrapper">
+            <div class="col s12 valign">
+                <div class="card">
+                    <div class="card-content">
+                    <% if (user){ %>
+                        <img src="<%= user.avatar %>" alt="" class="circle">
+                        <form method="POST" action="/gobbles/<%= gobble._id %>?_method=PUT">
+                            <textarea name="gobbleinput" id="gobble" cols="60" height="140px"><%= gobble.content %></textarea>
+                            <input type="SUBMIT" value="Submit" id="updateButton">
+                        </form>
+                    <% } %>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="javascripts/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+        $('#textarea1').val('New Text');
+        $('#textarea1').trigger('autoresize');
+    </script>
 </body>
 </html>
