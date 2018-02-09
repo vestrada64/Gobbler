@@ -43,7 +43,7 @@
               <div class="card-content">
                   <% if (user){ %>
                     <img id="avatarImg" src="<%= user.avatar %>" alt="">
-                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" style="height:22px width:35px;" >Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" >Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     <h4><strong>@<%= user.displayName %></strong></h4>
                     <div class="row">
                         <form class="col s12">
@@ -90,34 +90,16 @@
           </div>
         </div>
       </div>
-
-
-
-<!-- 
-          
-
-
-        <div class="wrapper" >
-        <% if (user){ %>
-          <img id="avatarImg" src="<%= user.avatar %>" alt="">
-          <textarea name="gobble-input" id="gobble" cols="60" height="140px" placeholder="Gobble on Bro..."></textarea>
-          <input type="SUBMIT" value="GOBBLE" id="submitButton" onclick="gobble()">
-          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-          <div class="userGobbles">
-              <a href="/gobbles/all">See All Gobbles</a><br>
-              <hr>
-            <% for(let i = 0; i < user.gobbles.length; i++){ %>
-            <div id=<% user.gobbles[i] %> >
-              <strong>@<%= user.displayName %>&nbsp;|&nbsp;</strong><%= user.gobbles[i].content %>                
-                <!-- credit goes to Freepik on flaticon.com -->
-                <!-- <span><img id="gravy" src="https://i.imgur.com/JmgloVQ.png"></span>
-                <input type="button" value="update" id="updatebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
+                <div id="gravy-button"><img class="gravyoff" src="https://i.imgur.com/JmgloVQ.png"></div>
+                
                 <input type="button" value="delete" id="deletebtn" data-gobbleid="<%= user.gobbles[i]._id %>">
+                <a href="/gobbles/edit/<%= user.gobbles[i]._id %>"><input type="button" value="edit" id="updatebtn" data-gobbleid="<%= user.gobbles[i]._id %>"></a>
+
 
               </div>
               <hr>
             <% } %>
+            <hr>
           </div>
           <div>
             <% for(t in Timeline){ %>
