@@ -7,10 +7,10 @@ var Twit = require('twit');
 
 
 // landing page --> index page
-router.get('/gobbles', gobbleCtrl.index );
+router.get('/gobbles', isLoggedIn, gobbleCtrl.index );
 router.get('/gobbles/all', gobbleCtrl.showAll);
-router.get('/gobbles/edit/:id', gobbleCtrl.editGobble);
-router.put('/gobbles/:id', gobbleCtrl.updateGobble);
+router.get('/gobbles/edit/:id', isLoggedIn, gobbleCtrl.editGobble);
+router.put('/gobbles/:id', isLoggedIn, gobbleCtrl.updateGobble);
 
 
 
@@ -37,3 +37,9 @@ router.get('/logout', function(req, res) {
 });
 
 module.exports = router;
+
+//  function to deny access to unauthorized user (oauth authorization)
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/');
+}

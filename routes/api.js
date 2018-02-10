@@ -8,8 +8,6 @@ router.get('/users/:id', usersCtrl.getOneUser);
 router.post('/users', usersCtrl.createUser);
 router.delete('/users/:id', usersCtrl.deleteUser);
 
-// router.get('/users/:id/gobbles/', usersCtrl.getUserGobbles);
-
 router.get('/gobbles', gobblesCtrl.getAllGobbles);
 router.get('/gobbles/:id', gobblesCtrl.getOneGobble);
 router.post('/gobbles', gobblesCtrl.createGobble);
@@ -21,6 +19,6 @@ router.get('/gobbles/:id/edit', function(req, res){
     gobblesCtrl.editGobble
 });
 
-// router.delete('/users/:id/gobbles/:id', gobblesCtrl.deleteGobble);
-// router.put('/users/:id/gobbles/:id', gobblesCtrl.updateGobble);
+
 module.exports = router;
+
